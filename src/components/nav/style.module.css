@@ -1,28 +1,16 @@
-/* .searchContainer{
+.navContainer{
     display: flex;
     padding: .5rem;
     justify-content: end;
     background-color: #4594BB;
-} */
-
-.searchInput{
-    border: none;
-    padding: .5rem;
-    border-radius: 4px;
 }
-.searchInput:focus{
-    border: none;
-    color: #666;
-    outline: none;
-}
-
-.searchButton{
+.randomButton{
     border: none;
     padding: .5rem;
     margin: 0 .5rem;
     border-radius: .25rem;
 }
-.searchButton:hover{
+.randomButton:hover{
     transform: scale(1.05);
     cursor: pointer;
 }
