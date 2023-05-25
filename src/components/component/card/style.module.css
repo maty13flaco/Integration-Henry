@@ -30,6 +30,9 @@
     margin: 0 .5rem;
     border-radius: 4px;
 }
+.cardHeadTitle a{
+    text-decoration: none;
+}
 .cardHeadTitle button{
     margin: 0 .5rem;
     border-radius: 4px;

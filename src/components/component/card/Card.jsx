@@ -1,3 +1,5 @@
+import {Link} from 'react-router-dom'
+
 import style from './style.module.css'
 
 export default function Card(props) {
@@ -5,7 +7,9 @@ export default function Card(props) {
       <div className={style.cardContainer}>
          <div className={style.cardHead}>
             <div className={style.cardHeadTitle}>
-               <span>{props.name}</span>
+               <Link to={`/detail/${props.id}`}>
+                  <span>{props.name}</span>
+               </Link>
                <button onClick={()=>{props.onClose(props.id)}}>X</button>
             </div>
             <img src={props.image} alt="" />
@@ -14,8 +18,6 @@ export default function Card(props) {
             <span className={style.infoGender}>{props.gender}</span>
             <span className={style.infoSpecies}>{props.species}</span>
          </div>
-         {/* <h2>{props.status}</h2> */}
-         {/* <h2>{props.name.origin}</h2> */}
       </div>
    );
 }

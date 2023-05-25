@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"; 
+
 import SearchBar from "../searchbar/SearchBar";
 
 import style from './style.module.css';
@@ -10,6 +12,8 @@ function Nav(props) {
 
     return ( 
         <div className={style.navContainer}>
+            <Link to="/home">Home</Link>
+            <Link to="/about">About</Link>
             <button className={style.randomButton} onClick={random}>Random</button>
             <SearchBar onSearch={props.onSearch}/>
         </div>
