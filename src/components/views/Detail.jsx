@@ -27,7 +27,7 @@ const Detail = () => {
       <span>Specie: {character.species}</span>
       <span>Gender: {character.gender}</span>
       <span>Origin: {character.origin?.name}</span>
-      <img src={character.image} />
+      <img alt={character.name} src={character.image} />
     </div>
   ) : (
     ""
