@@ -15,6 +15,7 @@ function Nav(props) {
     return location !== "/" ? ( 
         <div className={style.navContainer}>
             <Link to="/home">Home</Link>
+            <Link to="/favorites">Favorites</Link>
             <Link to="/about">About</Link>
             <button className={style.randomButton} onClick={random}>Random</button>
             <SearchBar onSearch={props.onSearch}/>

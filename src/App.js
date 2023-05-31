@@ -10,6 +10,7 @@ import About from './components/views/About'
 import Detail from './components/views/Detail'
 import Nav from './components/component/nav/Nav';
 import Form from './components/component/form/Form';
+import Favorites from './components/views/Favorites';
 
 
 function App() {
@@ -28,22 +29,23 @@ function App() {
    }
 
    useEffect(() => {
-      !access && navigate('/');
+     !access && navigate("/");
    }, [access]);
 
    const onSearch = (id) => {
-      axios(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {
+     axios(`https://rickandmortyapi.com/api/character/${id}`).then(
+       ({ data }) => {
          if (data.name && !checkRepeated(data.id)) {
-            setCharacters((oldChars) => [...oldChars, data]);
-         } 
-         else if (checkRepeated(data.id)) {
-            window.alert('¡Este personaje ya está en la lista!');
+           setCharacters((oldChars) => [...oldChars, data]);
+           navigate('/home')
+         } else if (checkRepeated(data.id)) {
+           window.alert("¡Este personaje ya está en la lista!");
+         } else {
+           window.alert("¡No hay personajes con este ID!");
          }
-         else {
-            window.alert('¡No hay personajes con este ID!');
-         }
-      });
-   }
+       }
+     );
+   };
 
    const checkRepeated = (id) => {
       return characters.some((char) => char.id === id);
@@ -59,6 +61,7 @@ function App() {
          <Routes>
             <Route path='/' element={<Form login={login}/>}></Route>
             <Route path='/home' element={<Home characters={characters} onClose={onClose}/>}></Route>
+            <Route path='/favorites' element={<Favorites />}></Route>
             <Route path='/about' element={<About />}></Route>
             <Route path='/detail/:id' element={<Detail />}></Route>
          </Routes>
