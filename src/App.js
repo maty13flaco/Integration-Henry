@@ -16,7 +16,7 @@ import Favorites from './components/views/Favorites';
 function App() {
    const [characters, setCharacters] = useState([]);
    const [access, setAccess] = useState(false);
-   const EMAIL = "matiasmunyo@gmail.com"
+   const EMAIL = "email@email.com"
    const PASSWORD = "pass1234"
    const navigate = useNavigate()
 
@@ -61,7 +61,7 @@ function App() {
          <Routes>
             <Route path='/' element={<Form login={login}/>}></Route>
             <Route path='/home' element={<Home characters={characters} onClose={onClose}/>}></Route>
-            <Route path='/favorites' element={<Favorites />}></Route>
+            <Route path='/favorites' element={<Favorites onClose={onClose}/>} ></Route>
             <Route path='/about' element={<About />}></Route>
             <Route path='/detail/:id' element={<Detail />}></Route>
          </Routes>
