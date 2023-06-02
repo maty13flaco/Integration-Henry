@@ -30,19 +30,21 @@ const Form = (props) => {
     }
 
     return( 
-        <form className={style.formContainer}>
-            <div className={style.inputContainer}>
-                <label htmlFor="email">Email</label>
-                <input type="text" name="email" value={userData.email} onChange={handleChange}/>
-                {errors.email && <span className="error">{errors.email}</span>}
-            </div>
-            <div className={style.inputContainer}>
-                <label htmlFor="password">Password</label>
-                <input type="password" name="password" value={userData.password} onChange={handleChange}/>
-                {errors.password && <span className="error">{errors.password}</span>}
-            </div>
-            <button type="submit" onClick={handleSubmit}>Submit</button>
-        </form>
+        <div className={style.formContainer}>
+            <form >
+                <div className={style.inputContainer}>
+                    <label htmlFor="email">Email</label>
+                    <input type="text" name="email" value={userData.email} onChange={handleChange}/>
+                    {errors.email && <span className="error">{errors.email}</span>}
+                </div>
+                <div className={style.inputContainer}>
+                    <label htmlFor="password">Password</label>
+                    <input type="password" name="password" value={userData.password} onChange={handleChange}/>
+                    {errors.password && <span className="error">{errors.password}</span>}
+                </div>
+                <button type="submit" onClick={handleSubmit}>Submit</button>
+            </form>
+        </div>
     );
 }
  
