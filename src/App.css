@@ -5,4 +5,12 @@ body{
    color: #FFFBFF;
    text-align: center;
    background-color: #241E2D;
+
+   /* color: #FFFBFF;
+   text-align: center;
+   background-color: #241E2D;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   min-height: 100vh; */
 }
