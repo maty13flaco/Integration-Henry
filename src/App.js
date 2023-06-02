@@ -7,7 +7,7 @@ import {Routes, Route, useNavigate} from 'react-router-dom'
 import './App.css';
 import Home from './components/views/Home'
 import About from './components/views/About'
-import Detail from './components/views/Detail'
+import Detail from './components/views/detail/Detail'
 import Nav from './components/component/nav/Nav';
 import Form from './components/component/form/Form';
 import Favorites from './components/views/Favorites';
