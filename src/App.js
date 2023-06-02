@@ -15,7 +15,7 @@ import Favorites from './components/views/Favorites';
 
 function App() {
    const [characters, setCharacters] = useState([]);
-   const [access, setAccess] = useState(false);
+   const [access, setAccess] = useState(true);
    const EMAIL = "matiasmunyo@gmail.com"
    const PASSWORD = "pass1234"
    const navigate = useNavigate()

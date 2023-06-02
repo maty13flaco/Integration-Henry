@@ -14,11 +14,15 @@ function Nav(props) {
 
     return location !== "/" ? ( 
         <div className={style.navContainer}>
-            <Link to="/home">Home</Link>
-            <Link to="/favorites">Favorites</Link>
-            <Link to="/about">About</Link>
-            <button className={style.randomButton} onClick={random}>Random</button>
-            <SearchBar onSearch={props.onSearch}/>
+            <div className={style.linkContainer}>
+                <Link className={style.randomButton} to="/home">Home</Link>
+                <Link className={style.randomButton} to="/favorites">Favorites</Link>
+                <Link className={style.randomButton} to="/about">About</Link>
+            </div>
+            <div className={style.linkContainer}>
+                <button className={style.randomButton} onClick={random}>Random</button>
+                <SearchBar onSearch={props.onSearch}/>
+            </div>
         </div>       
     ):("");
 }

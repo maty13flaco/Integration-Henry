@@ -17,29 +17,57 @@
     margin: 0 auto;
 }
 .cardHeadTitle{
+    /* display: flex;
+    justify-content: space-between;
+    padding: .5rem 0;
+    width: 100%;
+    min-height: 50px;
+    font-weight: bolder; */
+
     display: flex;
     justify-content: space-between;
     padding: .5rem 0;
     width: 100%;
+    min-height: 38px;
+    max-height: 38px;
     font-weight: bolder;
 }
 .cardHeadTitle span{
+    /* color: #fff;
+    background-color: #0D5B7B;
+    padding: 4px;
+    margin: 0 .5rem;
+    border-radius: 4px; */
+
     color: #fff;
     background-color: #0D5B7B;
     padding: 4px;
     margin: 0 .5rem;
+    display: flex;
+    align-items: center;
+    text-align: center;
     border-radius: 4px;
+    height: 80%;
+    overflow: hidden;
+    font-size: 12px;
+}
+.cardHeadTitleButtons{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-right: .5rem;
 }
 .cardHeadTitle a{
     text-decoration: none;
 }
 .cardHeadTitle button{
-    margin: 0 .5rem;
+    margin-left: .5rem;
     border-radius: 4px;
     padding: 0 1rem;
     border: none;
     background-color: #0D5B7B;
     color: #fff;
+    height: 100%;
 }
 
 .cardInfo{
