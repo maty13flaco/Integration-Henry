@@ -1,14 +1,18 @@
 .navContainer{
     display: flex;
     padding: .5rem;
-    justify-content: end;
+    align-items: center;
+    justify-content: space-between;
     background-color: #4594BB;
 }
 .randomButton{
     border: none;
-    padding: .5rem;
+    color: black;
+    padding: .3rem;
     margin: 0 .5rem;
+    text-decoration: none;
     border-radius: .25rem;
+    background-color: aliceblue;
 }
 .randomButton:hover{
     transform: scale(1.05);
