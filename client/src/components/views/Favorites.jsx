@@ -1,4 +1,4 @@
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch, connect } from "react-redux";
 import Cards from "../component/cards/Cards";
 
 import { orderCards, filterCards } from "../../redux/actions";
@@ -7,9 +7,10 @@ import { useState } from "react";
 
 const Favorites = (props) => {
     const [aux, setAux] = useState(false)
-
-    const myFavorites = useSelector(state => state.myFavorites);
+    
+    const favorites = useSelector(state => state.myFavorites);
     const dispatch = useDispatch();
+
 
     const handleOrder = (e) => {
       dispatch(orderCards(e.target.value));  
@@ -32,9 +33,10 @@ const Favorites = (props) => {
           <option value="Genderless">Sin genero</option>
           <option value="unknown">Desconocido</option>
         </select>
-        <Cards characters={myFavorites} onClose={props.onClose}/>
+        <Cards characters={favorites} onClose={props.onClose}/>
       </div>
     );
 }
- 
+
+
 export default Favorites;

@@ -1,17 +1,20 @@
-const http = require('http');
-const data = require('./utils/data');
-const getCharById = require('./controllers/getCharById');
+const express = require("express");
+const data = require("./utils/data");
+const routes = require("./routes/index")
 
-const port = 3001;
+const app = express();
+const PORT = 3001;
 
-const server = http.createServer((req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-
-  if(req.url.includes('/rickandmorty/character')){
-    let id = req.url.split('/').pop();
-
-    getCharById(res, id);
-  }
+app.use((req,res,next) =>{
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
+  next();
 })
+app.use(express.json())
+app.use('/rickandmorty', routes)
 
-server.listen(port, "localhost");
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});

@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react'
 import {Link} from 'react-router-dom'
-import {useDispatch, useSelector} from 'react-redux'
+import {connect, useDispatch, useSelector} from 'react-redux'
 
 import {addFav, removeFav} from '../../../redux/actions'
 
 import style from './style.module.css'
 
-export default function Card(props) {
+const Card = (props) => {
    const [isFav, setIsFav] = useState(false)
    const myFavorites = useSelector(state => state.myFavorites)
    const dispatch = useDispatch();
@@ -17,9 +17,10 @@ export default function Card(props) {
          setIsFav(true)
        }
      })
-   },[myFavorites])
+   },[myFavorites, props.id])
    
    const handleFavorite = (e) => {
+      console.log(myFavorites)
       if(isFav === true){
          setIsFav(false)
          dispatch(removeFav(props.id))
@@ -58,3 +59,11 @@ export default function Card(props) {
       </div>
    );
 }
+
+const mapStateToProps = (state) => {
+  return {
+    myFavorites: state.myFavorites
+  };
+}
+
+export default connect(mapStateToProps)(Card)

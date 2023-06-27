@@ -22,10 +22,15 @@ function App() {
 
 
    const login = (userData) => {
-     if(userData.email === EMAIL && userData.password === PASSWORD){
-      setAccess(true)
-      navigate('/home')
-     }
+    const {email, password} = userData;
+    const URL = 'http://localhost:3001/rickandmorty/login/';
+
+    axios(URL + `?email=${email}&password=${password}`)
+    .then(({data}) => {
+      const {access} = data;
+      setAccess(data);
+      access && navigate('/home');
+    })
    }
 
    useEffect(() => {
@@ -34,7 +39,7 @@ function App() {
 
    const onSearch = (id) => {
     //`https://rickandmortyapi.com/api/character/${id}`
-     axios(`http://localhost:3001/rickandmorty/character/${id}`).then(
+     axios(`http://localhost:3001/rickandmorty/characters/${id}`).then(
        ({ data }) => {
          if (data.name && !checkRepeated(data.id)) {
            setCharacters((oldChars) => [...oldChars, data]);

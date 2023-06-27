@@ -1,7 +1,16 @@
-export const addFav = (card) => {
-  return {
-    type: 'ADD_FAV',
-    payload: card
+import axios from 'axios';
+
+export const addFav = (character) => {
+  const endpoint = 'http://localhost:3001/rickandmorty/fav/';
+
+  return(dispatch)=>{
+    axios.post(endpoint, character)
+    .then(({data}) =>{
+      return dispatch({
+        type: 'ADD_FAV',
+        payload: data,
+      })
+    })
   }
 }
 
