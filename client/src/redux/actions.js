@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const addFav = (character) => {
-  const endpoint = 'http://localhost:3001/rickandmorty/fav/';
+  const endpoint = 'https://3001-maty13flaco-integration-flh6mllpj6e.ws-us101.gitpod.io/rickandmorty/fav/';
 
   return(dispatch)=>{
     axios.post(endpoint, character)

@@ -21,37 +21,66 @@ function App() {
    const navigate = useNavigate()
 
 
-   const login = (userData) => {
-    const {email, password} = userData;
-    const URL = 'http://localhost:3001/rickandmorty/login/';
+  //  const login = (userData) => {
+  //   const {email, password} = userData;
+  //   // const URL = 'http://localhost:3001/rickandmorty/login/';
+  //   const URL = 'https://3001-maty13flaco-integration-flh6mllpj6e.ws-us101.gitpod.io/rickandmorty/login/';
 
-    axios(URL + `?email=${email}&password=${password}`)
-    .then(({data}) => {
-      const {access} = data;
-      setAccess(data);
-      access && navigate('/home');
-    })
+  //   axios(URL + `?email=${email}&password=${password}`)
+  //   .then(({data}) => {
+  //     const {access} = data;
+  //     setAccess(data);
+  //     access && navigate('/home');
+  //   })
+  //  }
+   // LOGIN FUNCTION WITH ASYNC/AWAIT
+   const login = async (userData) => {
+     const {email, password} = userData;
+     const URL = 'https://3001-maty13flaco-integration-flh6mllpj6e.ws-us101.gitpod.io/rickandmorty/login/';
+
+     const response = await axios(URL + `?email=${email}&password${password}`);
+     const data = await response.data;
+    const acces = data
+    setAccess(data)
+    access && navigate('/home')
    }
 
    useEffect(() => {
      !access && navigate("/");
    }, [access]);
 
-   const onSearch = (id) => {
-    //`https://rickandmortyapi.com/api/character/${id}`
-     axios(`http://localhost:3001/rickandmorty/characters/${id}`).then(
-       ({ data }) => {
-         if (data.name && !checkRepeated(data.id)) {
-           setCharacters((oldChars) => [...oldChars, data]);
-           navigate('/home')
-         } else if (checkRepeated(data.id)) {
-           window.alert("¡Este personaje ya está en la lista!");
-         } else {
-           window.alert("¡No hay personajes con este ID!");
-         }
-       }
-     );
-   };
+  //  const onSearch = (id) => {
+  //   //`https://rickandmortyapi.com/api/character/${id}`
+  //   //  axios(`http://localhost:3001/rickandmorty/characters/${id}`).then(
+  //    axios(`https://3001-maty13flaco-integration-flh6mllpj6e.ws-us101.gitpod.io/rickandmorty/characters/${id}`).then(
+      
+  //      ({ data }) => {
+  //        if (data.name && !checkRepeated(data.id)) {
+  //          setCharacters((oldChars) => [...oldChars, data]);
+  //          navigate('/home')
+  //        } else if (checkRepeated(data.id)) {
+  //          window.alert("¡Este personaje ya está en la lista!");
+  //        } else {
+  //          window.alert("¡No hay personajes con este ID!");
+  //        }
+  //      }
+  //    );
+  //  };
+  const onSearch = async (id) => {
+    const response = await axios(`https://3001-maty13flaco-integration-flh6mllpj6e.ws-us101.gitpod.io/rickandmorty/characters/${id}`)
+
+    const data = await response.data;
+    if (data.name &&!checkRepeated(data.id)) {
+      setCharacters((oldChars) => [...oldChars, data])
+      navigate('/home')
+    }
+    else if(checkRepeated(data.id)){
+      window.alert("¡Este personaje ya esta en la lista!")
+    }
+    else{
+      window.alert("No hay un personaje con ese 'ID'")
+    }
+  }
 
    const checkRepeated = (id) => {
       return characters.some((char) => char.id === id);
