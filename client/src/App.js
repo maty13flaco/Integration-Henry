@@ -36,7 +36,7 @@ function App() {
    // LOGIN FUNCTION WITH ASYNC/AWAIT
    const login = async (userData) => {
      const {email, password} = userData;
-     const URL = 'https://3001-maty13flaco-integration-flh6mllpj6e.ws-us101.gitpod.io/rickandmorty/login/';
+     const URL = 'http://localhost:3001/rickandmorty/login/';
 
      const response = await axios(URL + `?email=${email}&password${password}`);
      const data = await response.data;
@@ -67,7 +67,7 @@ function App() {
   //    );
   //  };
   const onSearch = async (id) => {
-    const response = await axios(`https://3001-maty13flaco-integration-flh6mllpj6e.ws-us101.gitpod.io/rickandmorty/characters/${id}`)
+    const response = await axios(`http://localhost:3001/rickandmorty/characters/${id}`)
 
     const data = await response.data;
     if (data.name &&!checkRepeated(data.id)) {
