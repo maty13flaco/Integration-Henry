@@ -45,6 +45,59 @@ describe('GET /rickandmorty/login', () => {
 
 describe('POST /rickandmorty/fav', () => {
   it('Should respond with the same object that is received in the request body', async () => {
-    
+    const fav = {
+      id: 34,
+      name: 'rick',
+      species: 'human',
+      gender: 'male',
+      status: 'alive',
+      origin: 'unkwown',
+      image: 'url',
+    };
+
+    const res = await agent.post('/rickandmorty/fav').send(fav)
+    expect(res.body).toEqual({message: 'Added favorite!', favorite: fav})
   });
 });
+
+describe("DELETE /rickandmorty/fav/:id", () => {
+  beforeAll(async () => {
+    const characters = [  {
+      id: 1,
+      name: "Rick Sanchez",
+      status: "Alive",
+      species: "Human",
+      gender: "Male",
+      origin: {
+        name: "Earth (C-137)",
+        url: "https://rickandmortyapi.com/api/location/1",
+      },
+      image: "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
+    },
+    {
+      id: 2,
+      name: "Morty Smith",
+      status: "Alive",
+      species: "Human",
+      gender: "Male",
+      origin: {
+        name: "unknown",
+        url: "",
+      },
+      image: "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
+    }]
+
+    const req1 = await agent.post('/rickandmorty/fav').send(characters[0])
+    const req2 = await agent.post('/rickandmorty/fav').send(characters[1])
+  })
+  it('Should respond with an object with list of favorites if not send params id', async () => {
+    const res = await agent.delete('/rickandmorty/fav')
+    expect(res.body).toEqual({myFavorite: res.body.favorite})
+  })
+  it('Should respond with the list of favorites without the character deleted!', async () =>{
+    const id = 2
+    const res = await agent.delete(`/rickandmorty/fav/${id}`)
+    
+    expect(res.status).toEqual(200)
+  })
+})
