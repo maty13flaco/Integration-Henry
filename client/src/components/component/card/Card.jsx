@@ -31,31 +31,20 @@ const Card = (props) => {
       }
    }
    return (
-
-
-      <div className={style.cardContainer}>
-         <div className={style.cardHead}>
-            <div className={style.cardHeadTitle}>
-               <Link to={`/detail/${props.id}`}>
-                  <span>{props.name}</span>
-               </Link>
-               <div className={style.cardHeadTitleButtons}>
-                  {
-                     isFav ? (
-                        <button onClick={handleFavorite}>❤️</button>
-                     ):(
-                        <button onClick={handleFavorite}>🤍</button>
-                     )
-                  }
-                  <button onClick={()=>{props.onClose(props.id)}}>X</button>
-               </div>
-            </div>
-            <img src={props.image} alt="" />
-         </div>
-         <div className={style.cardInfo}>
-            <span className={style.infoGender}>{props.gender}</span>
-            <span className={style.infoSpecies}>{props.species}</span>
-         </div>
+      <div className={style.card}>
+	<div className={style.cardHead}>
+	  <img src={props.image} alt="card image" />
+	</div>
+	<div className={style.cardBody}>
+	  <div className={style.bodyTitle}>
+	    <span>{props.name}</span>
+          </div>
+          <div className={style.bodyInfo}>
+            <span>{props.origin}</span>
+	    <span>{props.species}</span>
+	    <span>{props.gender}</span>
+          </div>
+        </div>
       </div>
    );
 }

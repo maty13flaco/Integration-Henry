@@ -1,4 +1,4 @@
-.cardContainer{
+/*.cardContainer{
     width: 250px;
     
     max-height: 400px;
@@ -17,12 +17,6 @@
     margin: 0 auto;
 }
 .cardHeadTitle{
-    /* display: flex;
-    justify-content: space-between;
-    padding: .5rem 0;
-    width: 100%;
-    min-height: 50px;
-    font-weight: bolder; */
 
     display: flex;
     justify-content: space-between;
@@ -33,12 +27,6 @@
     font-weight: bolder;
 }
 .cardHeadTitle span{
-    /* color: #fff;
-    background-color: #0D5B7B;
-    padding: 4px;
-    margin: 0 .5rem;
-    border-radius: 4px; */
-
     color: #fff;
     background-color: #0D5B7B;
     padding: 4px;
@@ -75,4 +63,39 @@
     align-items: center;
     justify-content: space-around;
     padding: .5rem;
+} */
+.card {
+  background-color: lightblue;
+  margin: 0 0.25rem;
+}
+.cardHead {
+  padding: 0.3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.cardHead img {
+  width: 190px;
+  height: 250px;
+  border-radius: 1rem;
+}
+.cardBody {
+  display: flex;
+  max-width: 180px;
+  flex-direction: column;
+  padding: 0 0.3rem;
+}
+.bodyTitle {
+  font-weight: bold;
+  color: #333;
+  margin: 0 0.2rem;
+  display: flex;
+  justify-content: flex-start;
+}
+.bodyInfo {
+  margin: 0.2rem;
+  color: #666;
+  display: flex;
+  justify-content: space-between;
 }
