@@ -1,8 +1,3 @@
-// EMAIL
-    // el nombre de usuario tiene que ser un email (¡Explora validaciónes REGEX en internet!).
-    // el nombre de usuario no puede estar vacío.
-    // el nombre de usuario no puede tener más de 35 caracteres.
-
 export const validate = (input) => {
     const errors = {}
     // EMAIL CONDITIONS
@@ -17,7 +12,3 @@ export const validate = (input) => {
     
     return errors
 }
-// PASSWORD
-    // la contraseña tiene que tener al menos un número.
-    // la contraseña tiene que tener una longitud entre 6 y 10 caracteres.
-    // ¡No te olvides de renderizar y darle estilos a tus errores! Te dejamos un ejemplo de cómo puede quedar.
