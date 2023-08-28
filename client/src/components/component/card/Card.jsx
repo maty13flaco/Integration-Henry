@@ -31,21 +31,21 @@ const Card = (props) => {
       }
    }
    return (
-      <div className={style.card}>
-	<div className={style.cardHead}>
-	  <img src={props.image} alt="card image" />
-	</div>
-	<div className={style.cardBody}>
-	  <div className={style.bodyTitle}>
-	    <span>{props.name}</span>
-          </div>
-          <div className={style.bodyInfo}>
-            <span>{props.origin}</span>
-	    <span>{props.species}</span>
-	    <span>{props.gender}</span>
-          </div>
-        </div>
-      </div>
+     <div className={style.card}>
+       <div className={style.cardHead}>
+         <img src={props.image} alt="card image" />
+       </div>
+       <div className={style.cardBody}>
+         <div className={style.bodyTitle}>
+           <span>{props.name}</span>
+         </div>
+         <div className={style.bodyInfo}>
+           <span>{props.origin}</span>
+           <span>{props.species}</span>
+           <span>{props.gender}</span>
+         </div>
+       </div>
+     </div>
    );
 }
 

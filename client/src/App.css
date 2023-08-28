@@ -2,10 +2,10 @@ body{
    background-color: #241E2D;
 }
 .App {
-   color: #FFFBFF;
+   color: #333;
    text-align: center;
-   background-color: #241E2D;
-
+   /* background-color: #241E2D; */
+   background-color: #fff;
    /* color: #FFFBFF;
    text-align: center;
    background-color: #241E2D;
