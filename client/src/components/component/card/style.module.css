@@ -1,41 +1,78 @@
-.card {
-  margin: .5rem 0.25rem;
-  transition: box-shadow .2s ease-in-out;
+.cardContainer{
+    width: 250px;
+    
+    max-height: 400px;
+    margin: .5rem;
+    border-radius: .5rem;
+    background-color: #CB9845;
 }
-.card:hover{
-  box-shadow: 1px 2px 0px #00000012;
-  cursor: pointer;
+
+.cardHead{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-.cardHead {
-  padding: 0.3rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.cardHead img{
+    width: 100%;
+    margin: 0 auto;
 }
-.cardHead img {
-  width: 180px;
-  height: 220px;
-  border-radius: .8rem;
+.cardHeadTitle{
+    /* display: flex;
+    justify-content: space-between;
+    padding: .5rem 0;
+    width: 100%;
+    min-height: 50px;
+    font-weight: bolder; */
+
+    display: flex;
+    justify-content: space-between;
+    padding: .5rem 0;
+    width: 100%;
+    min-height: 38px;
+    max-height: 38px;
+    font-weight: bolder;
 }
-.cardBody {
-  display: flex;
-  max-width: 180px;
-  flex-direction: column;
-  padding: 0 0.3rem;
+.cardHeadTitle span{
+    /* color: #fff;
+    background-color: #0D5B7B;
+    padding: 4px;
+    margin: 0 .5rem;
+    border-radius: 4px; */
+
+    color: #fff;
+    background-color: #0D5B7B;
+    padding: 4px;
+    margin: 0 .5rem;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    border-radius: 4px;
+    height: 80%;
+    overflow: hidden;
+    font-size: 12px;
 }
-.bodyTitle {
-  font-size: .9rem;
-  font-weight: bold;
-  color: #333;
-  margin: 0 0.2rem;
-  display: flex;
-  justify-content: flex-start;
+.cardHeadTitleButtons{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-right: .5rem;
 }
-.bodyInfo {
-  font-size: .8rem;
-  margin: 0.2rem 0;
-  color: #666;
-  display: flex;
-  justify-content: space-between;
+.cardHeadTitle a{
+    text-decoration: none;
+}
+.cardHeadTitle button{
+    margin-left: .5rem;
+    border-radius: 4px;
+    padding: 0 1rem;
+    border: none;
+    background-color: #0D5B7B;
+    color: #fff;
+    height: 100%;
+}
+
+.cardInfo{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: .5rem;
 }
